@@ -55,7 +55,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet-sonarscanner begin \
-            /k:"saulalvarado1_si784-2026-ii-examen-u1-saulalvarado1" \
+            /k:"saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1" \
             /o:"saulalvarado1" \
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.host.url="https://sonarcloud.io" \

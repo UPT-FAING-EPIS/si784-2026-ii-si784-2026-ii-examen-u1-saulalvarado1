@@ -1,6 +1,6 @@
 # CinePass — Sistema de Venta de Boletos para Cine
 
-[![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=saulalvarado1_si784-2026-ii-examen-u1-saulalvarado1&metric=alert_status)](https://sonarcloud.io/project/overview?id=saulalvarado1_si784-2026-ii-examen-u1-saulalvarado1)
+[![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1&metric=alert_status)](https://sonarcloud.io/project/overview?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1)
 [![Security Analysis](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1/actions/workflows/snyk-semgrep.yml/badge.svg)](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1/actions/workflows/snyk-semgrep.yml)
 [![CI/CD Deploy](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1/actions/workflows/deploy.yml/badge.svg)](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1/actions/workflows/deploy.yml)
 
@@ -14,7 +14,7 @@ Plataforma web de última generación para la venta de boletos de cine que permi
 |---|---|
 | **🌐 Aplicación Publicada** | [https://cinepass-app.azurewebsites.net](https://cinepass-app.azurewebsites.net) |
 | **🐙 Repositorio GitHub** | [https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1) |
-| **📊 SonarCloud Dashboard** | [https://sonarcloud.io/project/overview?id=saulalvarado1_si784-2026-ii-examen-u1-saulalvarado1](https://sonarcloud.io/project/overview?id=saulalvarado1_si784-2026-ii-examen-u1-saulalvarado1) |
+| **📊 SonarCloud Dashboard** | [https://sonarcloud.io/project/overview?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1](https://sonarcloud.io/project/overview?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1) |
 
 ---
 
