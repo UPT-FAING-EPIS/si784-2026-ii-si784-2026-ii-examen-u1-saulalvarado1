@@ -53,14 +53,16 @@ public class RoomService : IRoomService
         _context.Rooms.Add(room);
         await _context.SaveChangesAsync();
 
-        // Automatically generate seats for the room
+        // Automatically generate seats for the room with sanitized bounds
+        int safeRows = Math.Clamp(dto.Rows, 1, 26);
+        int safeCols = Math.Clamp(dto.Columns, 1, 50);
         var seats = new List<Seat>();
-        for (int r = 0; r < dto.Rows; r++)
+        for (int r = 0; r < safeRows; r++)
         {
             char rowChar = (char)('A' + r);
-            string seatType = (r >= dto.Rows - 2) ? "VIP" : "Standard"; // Last 2 rows are VIP
+            string seatType = (r >= safeRows - 2) ? "VIP" : "Standard"; // Last 2 rows are VIP
 
-            for (int c = 1; c <= dto.Columns; c++)
+            for (int c = 1; c <= safeCols; c++)
             {
                 seats.Add(new Seat
                 {

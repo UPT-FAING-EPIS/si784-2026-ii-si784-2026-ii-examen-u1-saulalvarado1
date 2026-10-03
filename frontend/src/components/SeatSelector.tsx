@@ -38,7 +38,7 @@ export const SeatSelector: React.FC<SeatSelectorProps> = ({
         if (isMounted) setLoading(false);
       }
     }
-    fetchSeats();
+    void fetchSeats();
     return () => { isMounted = false; };
   }, [showtime.id]);
 

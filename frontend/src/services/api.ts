@@ -218,8 +218,11 @@ export const api = {
       // Fallback response for offline demo
       const now = new Date();
       const expiresAt = new Date(now.getTime() + 5 * 60000);
+      const randomBytes = new Uint8Array(4);
+      globalThis.crypto.getRandomValues(randomBytes);
+      const codeSuffix = Array.from(randomBytes, b => (b % 36).toString(36)).join('').toUpperCase();
       return {
-        reservationCode: `RES-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+        reservationCode: `RES-${codeSuffix}`,
         showtimeId,
         reservedSeatIds: seatIds,
         reservedAt: now.toISOString(),
@@ -246,9 +249,11 @@ export const api = {
       // Fallback confirmation
       const now = new Date().toISOString();
       const txnId = `TXN-${Date.now().toString().slice(-8)}`;
+      const ticketRandoms = new Uint32Array(payload.seatIds.length * 2);
+      globalThis.crypto.getRandomValues(ticketRandoms);
       const tickets: Ticket[] = payload.seatIds.map((seatId, idx) => ({
-        ticketId: Math.floor(Math.random() * 1000) + 1,
-        ticketCode: `TKT-${Math.random().toString(36).substring(2, 10).toUpperCase()}`,
+        ticketId: (ticketRandoms[idx * 2] % 1000) + 1,
+        ticketCode: `TKT-${(ticketRandoms[idx * 2 + 1] % 1679616).toString(36).padStart(4, '0').toUpperCase()}`,
         showtimeId: payload.showtimeId,
         movieTitle: "Gladiator II",
         moviePosterUrl: MOCK_MOVIES[0].posterUrl,

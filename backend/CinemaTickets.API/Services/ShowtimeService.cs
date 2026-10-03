@@ -41,6 +41,7 @@ public class ShowtimeService : IShowtimeService
 
         var query = _context.Showtimes
             .AsNoTracking()
+            .AsSplitQuery()
             .Include(s => s.Movie)
             .Include(s => s.Room)
             .Include(s => s.Tickets)
@@ -107,6 +108,7 @@ public class ShowtimeService : IShowtimeService
     {
         var s = await _context.Showtimes
             .AsNoTracking()
+            .AsSplitQuery()
             .Include(x => x.Movie)
             .Include(x => x.Room)
             .Include(x => x.Tickets)

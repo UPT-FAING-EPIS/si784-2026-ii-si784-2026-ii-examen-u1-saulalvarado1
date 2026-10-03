@@ -16,9 +16,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand */}
-        <div 
+        <button 
+          type="button"
           onClick={() => setActiveTab('billboard')}
-          className="flex items-center space-x-3 cursor-pointer group"
+          className="flex items-center space-x-3 text-left group"
         >
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center shadow-lg shadow-rose-950/50 group-hover:scale-105 transition-transform duration-200">
             <Film className="w-6 h-6 text-white" />
@@ -31,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               Venta de Boletos Online
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Navigation Tabs */}
         <nav className="flex items-center space-x-1 sm:space-x-2 bg-slate-950/60 p-1.5 rounded-2xl border border-slate-800/80">

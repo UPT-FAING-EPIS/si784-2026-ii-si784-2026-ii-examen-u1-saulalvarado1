@@ -27,6 +27,11 @@ public class ExceptionHandlingMiddleware
         }
     }
 
+    private static readonly JsonSerializerOptions JsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
+
     private static Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         context.Response.ContentType = "application/problem+json";
@@ -51,11 +56,8 @@ public class ExceptionHandlingMiddleware
             timestamp = DateTime.UtcNow
         };
 
-        var json = JsonSerializer.Serialize(problemDetails, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        });
+        var json = JsonSerializer.Serialize(problemDetails, JsonOptions);
 
-        return context.Response.WriteAsync(json);
+        return context.Response.WriteAsync(json, context.RequestAborted);
     }
 }

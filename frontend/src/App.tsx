@@ -44,7 +44,7 @@ export function App() {
   }, [selectedDate]);
 
   useEffect(() => {
-    loadBillboardData();
+    void loadBillboardData();
   }, [loadBillboardData]);
 
   const handleSelectShowtime = (showtime: Showtime) => {
@@ -64,7 +64,7 @@ export function App() {
     setPendingCheckoutSeats([]);
     setReservationCode('');
     setConfirmation(conf);
-    loadBillboardData();
+    void loadBillboardData();
   };
 
   const handleFinishTicketFlow = () => {

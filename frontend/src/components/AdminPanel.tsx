@@ -45,7 +45,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onRefreshData }) => {
         setLoading(false);
       }
     }
-    loadData();
+    void loadData();
   }, []);
 
   const handleCreateShowtime = async (e: React.FormEvent) => {

@@ -24,7 +24,7 @@ export const UserTicketHistory: React.FC<UserTicketHistoryProps> = ({ userId }) 
         setLoading(false);
       }
     }
-    loadTickets();
+    void loadTickets();
   }, [userId]);
 
   const filtered = tickets.filter(t => 
