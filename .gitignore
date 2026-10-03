@@ -1,0 +1,30 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.db-journal
+.nuget/
+TestResults/
+
+# Node & Frontend
+**/node_modules/
+**/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Terraform
+**/.terraform/
+**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+tfplan
+terraform.tfvars
+
+# OS generated
+.DS_Store
+Thumbs.db

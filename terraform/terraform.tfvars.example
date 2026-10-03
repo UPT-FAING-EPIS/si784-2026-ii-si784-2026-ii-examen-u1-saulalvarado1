@@ -1,0 +1,6 @@
+environment       = "prod"
+location          = "eastus2"
+project_name      = "cinepass"
+db_admin_user     = "cinepassadmin"
+db_admin_password = "ChangeThisSecurePassword123!"
+container_image   = "ghcr.io/upt-faing-epis/si784-2026-ii-si784-2026-ii-proyecto-group-5:latest"

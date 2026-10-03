@@ -1,0 +1,58 @@
+name: "Generate Architecture & Database Documentation (Mermaid)"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "backend/CinemaTickets.API/Models/**"
+      - "backend/CinemaTickets.API/Data/**"
+      - "terraform/**"
+      - "scripts/generate_docs.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate_docs:
+    name: "Generate Mermaid Diagrams & Data Dictionary"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Documentation Generator Script
+        run: python scripts/generate_docs.py
+
+      - name: Verify Documentation Files Exist
+        run: |
+          test -f docs/DATA_DICTIONARY.md || (echo "Falta DATA_DICTIONARY.md" && exit 1)
+          test -f docs/DIAGRAMS.md || (echo "Falta DIAGRAMS.md" && exit 1)
+          echo "Documentos verificados correctamente."
+
+      - name: Upload Documentation Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinema-architecture-documentation
+          path: docs/
+          retention-days: 30
+
+      - name: Commit and Push Updated Documentation
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          if git diff --staged --quiet; then
+            echo "No hay cambios en la documentación para commitear."
+          else
+            git commit -m "docs: actualizar diagramas Mermaid y diccionario de datos [skip ci]"
+            git push origin main
+          fi

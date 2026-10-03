@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: ./backend/CinemaTickets.API
+      dockerfile: Dockerfile
+    container_name: cinepass-backend
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__DefaultConnection=Data Source=/app/cinema_tickets.db
+    volumes:
+      - cinepass-data:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    image: nginx:alpine
+    container_name: cinepass-frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  cinepass-data:
