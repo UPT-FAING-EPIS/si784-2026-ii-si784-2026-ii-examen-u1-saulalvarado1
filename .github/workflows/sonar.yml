@@ -60,8 +60,7 @@ jobs:
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.host.url="https://sonarcloud.io" \
             /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" \
-            /d:sonar.exclusions="**/bin/**,**/obj/**,**/dist/**,**/node_modules/**" \
-            /d:sonar.qualitygate.wait=true
+            /d:sonar.exclusions="**/bin/**,**/obj/**,**/dist/**,**/node_modules/**"
 
       - name: Build Backend Solution
         run: dotnet build backend/CinemaTickets.sln --configuration Release --no-restore

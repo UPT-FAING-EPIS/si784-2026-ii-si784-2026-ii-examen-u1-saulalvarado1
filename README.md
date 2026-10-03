@@ -12,9 +12,10 @@ Plataforma web de última generación para la venta de boletos de cine que permi
 
 | Recurso | URL |
 |---|---|
-| **🌐 Aplicación Publicada** | [https://cinepass-app.azurewebsites.net](https://cinepass-app.azurewebsites.net) |
+| **🌐 Aplicación Publicada (Frontend)** | [https://upt-faing-epis.github.io/si784-2026-ii-examen-u1-saulalvarado1/](https://upt-faing-epis.github.io/si784-2026-ii-examen-u1-saulalvarado1/) |
+| **📦 Contenedor Docker Backend (GHCR)** | `ghcr.io/upt-faing-epis/si784-2026-ii-examen-u1-saulalvarado1/backend:latest` |
 | **🐙 Repositorio GitHub** | [https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1](https://github.com/UPT-FAING-EPIS/si784-2026-ii-examen-u1-saulalvarado1) |
-| **📊 SonarCloud Dashboard** | [https://sonarcloud.io/project/overview?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1](https://sonarcloud.io/project/overview?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1) |
+| **📊 SonarCloud Dashboard** | [https://sonarcloud.io/summary/new_code?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1&branch=main](https://sonarcloud.io/summary/new_code?id=saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1&branch=main) |
 
 ---
 
