@@ -56,7 +56,7 @@ jobs:
         run: |
           dotnet-sonarscanner begin \
             /k:"saulalvarado1-lab_si784-2026-ii-examen-u1-saulalvarado1" \
-            /o:"saulalvarado1" \
+            /o:"saulalvarado1-lab" \
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.host.url="https://sonarcloud.io" \
             /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" \
