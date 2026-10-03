@@ -46,6 +46,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set Lowercase Image Repository Name
+        run: |
+          echo "IMAGE_NAME=ghcr.io/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')/backend" >> $GITHUB_ENV
+
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
@@ -53,15 +57,15 @@ jobs:
           file: ./backend/CinemaTickets.API/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/backend:latest
-            ghcr.io/${{ github.repository }}/backend:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Deploy to Cloud Container Host (Azure Web App)
         uses: azure/webapps-deploy@v3
         continue-on-error: true
         with:
           app-name: 'cinepass-backend-app'
-          images: 'ghcr.io/${{ github.repository }}/backend:latest'
+          images: '${{ env.IMAGE_NAME }}:latest'
 
       - name: Deploy Frontend to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
